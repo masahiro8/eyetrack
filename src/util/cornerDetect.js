@@ -1,7 +1,7 @@
 /**
  * Corner Detector module
  */
-export const cornerDetect = () => {
+(function() {
   var CornerDetector; // top-level namespace
   var _root = this; // reference to 'window' or 'global'
 
@@ -27,17 +27,17 @@ export const cornerDetect = () => {
         case "eigen":
           // implement ?
           throw new Error("not implementation error");
-        // break;
+          break;
         case "harris":
           return core._detectHarris(img, params);
-        // break;
+          break;
         case "fast":
           // implement ?
           throw new Error("not implementation error");
-        // break;
+          break;
         default:
           return core._detectHarris(img, params);
-        // break;
+          break;
       }
     },
     _validateParams: function(params) {
@@ -315,8 +315,7 @@ export const cornerDetect = () => {
   CornerDetector.HARRIS = "harris";
   CornerDetector.FAST = "fast";
   CornerDetector.detect = core.detect;
-  return CornerDetector;
-};
+}.call(this));
 
 const Harris = (CornerDetector, ctx, data, rect) => {
   const w = rect.width;
